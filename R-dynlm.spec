@@ -4,7 +4,7 @@
 #
 Name     : R-dynlm
 Version  : 0.3
-Release  : 2
+Release  : 3
 URL      : https://cran.r-project.org/src/contrib/dynlm_0.3-3.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/dynlm_0.3-3.tar.gz
 Summary  : Dynamic Linear Regression
