@@ -4,7 +4,7 @@
 #
 Name     : R-dynlm
 Version  : 0.3
-Release  : 3
+Release  : 4
 URL      : https://cran.r-project.org/src/contrib/dynlm_0.3-3.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/dynlm_0.3-3.tar.gz
 Summary  : Dynamic Linear Regression
@@ -14,11 +14,9 @@ Requires: R-lmtest
 Requires: R-zoo
 Requires: R-car
 Requires: R-pbkrtest
-Requires: R-quantreg
 BuildRequires : R-car
 BuildRequires : R-lmtest
 BuildRequires : R-pbkrtest
-BuildRequires : R-quantreg
 BuildRequires : R-zoo
 BuildRequires : clr-R-helpers
 
@@ -29,9 +27,12 @@ No detailed description available
 %setup -q -c -n dynlm
 
 %build
+export LANG=C
+export SOURCE_DATE_EPOCH=1484535401
 
 %install
 rm -rf %{buildroot}
+export SOURCE_DATE_EPOCH=1484535401
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -41,7 +42,7 @@ export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export LDFLAGS="$LDFLAGS  -Wl,-z -Wl,relro"
 mkdir -p %{buildroot}/usr/lib64/R/library
-R CMD INSTALL --install-tests --build  -l %{buildroot}/usr/lib64/R/library dynlm
+R CMD INSTALL --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} --build  -l %{buildroot}/usr/lib64/R/library dynlm
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
 export LANG=C
