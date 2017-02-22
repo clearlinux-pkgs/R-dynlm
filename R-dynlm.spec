@@ -4,9 +4,9 @@
 #
 Name     : R-dynlm
 Version  : 0.3
-Release  : 4
-URL      : https://cran.r-project.org/src/contrib/dynlm_0.3-3.tar.gz
-Source0  : https://cran.r-project.org/src/contrib/dynlm_0.3-3.tar.gz
+Release  : 5
+URL      : https://cran.r-project.org/src/contrib/dynlm_0.3-5.tar.gz
+Source0  : https://cran.r-project.org/src/contrib/dynlm_0.3-5.tar.gz
 Summary  : Dynamic Linear Regression
 Group    : Development/Tools
 License  : GPL-2.0 GPL-3.0
@@ -28,11 +28,11 @@ No detailed description available
 
 %build
 export LANG=C
-export SOURCE_DATE_EPOCH=1484535401
+export SOURCE_DATE_EPOCH=1487767899
 
 %install
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1484535401
+export SOURCE_DATE_EPOCH=1487767899
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
