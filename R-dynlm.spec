@@ -4,7 +4,7 @@
 #
 Name     : R-dynlm
 Version  : 0.3.5
-Release  : 9
+Release  : 10
 URL      : https://cran.r-project.org/src/contrib/dynlm_0.3-5.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/dynlm_0.3-5.tar.gz
 Summary  : Dynamic Linear Regression
@@ -13,10 +13,12 @@ License  : GPL-2.0 GPL-3.0
 Requires: R-car
 Requires: R-lmtest
 Requires: R-pbkrtest
+Requires: R-quantreg
 Requires: R-zoo
 BuildRequires : R-car
 BuildRequires : R-lmtest
 BuildRequires : R-pbkrtest
+BuildRequires : R-quantreg
 BuildRequires : R-zoo
 BuildRequires : clr-R-helpers
 
@@ -27,12 +29,15 @@ No detailed description available
 %setup -q -c -n dynlm
 
 %build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1489127604
+export SOURCE_DATE_EPOCH=1492796499
 
 %install
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1489127604
+export SOURCE_DATE_EPOCH=1492796499
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -48,7 +53,7 @@ R CMD INSTALL --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} --build  -l
 export LANG=C
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
-export no_proxy=localhost
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
 R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library dynlm
 
@@ -60,6 +65,7 @@ R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/lib
 /usr/lib64/R/library/dynlm/INDEX
 /usr/lib64/R/library/dynlm/Meta/Rd.rds
 /usr/lib64/R/library/dynlm/Meta/data.rds
+/usr/lib64/R/library/dynlm/Meta/features.rds
 /usr/lib64/R/library/dynlm/Meta/hsearch.rds
 /usr/lib64/R/library/dynlm/Meta/links.rds
 /usr/lib64/R/library/dynlm/Meta/nsInfo.rds
