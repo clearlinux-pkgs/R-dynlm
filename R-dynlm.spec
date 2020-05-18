@@ -4,7 +4,7 @@
 #
 Name     : R-dynlm
 Version  : 0.3.6
-Release  : 52
+Release  : 53
 URL      : https://cran.r-project.org/src/contrib/dynlm_0.3-6.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/dynlm_0.3-6.tar.gz
 Summary  : Dynamic Linear Regression
@@ -17,28 +17,28 @@ BuildRequires : R-car
 BuildRequires : R-lmtest
 BuildRequires : R-zoo
 BuildRequires : buildreq-R
-BuildRequires : util-linux
 
 %description
 No detailed description available
 
 %prep
 %setup -q -c -n dynlm
+cd %{_builddir}/dynlm
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571821372
+export SOURCE_DATE_EPOCH=1589774054
 
 %install
-export SOURCE_DATE_EPOCH=1571821372
+export SOURCE_DATE_EPOCH=1589774054
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
